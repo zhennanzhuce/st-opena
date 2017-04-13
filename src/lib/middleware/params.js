@@ -21,16 +21,6 @@ exports = module.exports = (apis, opts) => {
       return res.send(403, { error: { code: 40006 } });
     }
 
-    if(query.v){
-      if(!apis[query.method][1][query.v]){
-        return res.send(403, { error: { code: 40004 } });
-      }
-    }
-
-    let api = apis[query.method];
-    let v = query.v || api[0];
-
-    let method = api[1][v];
-    method.params(req, res, next);
+    next();
   };
 };

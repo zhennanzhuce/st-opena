@@ -1,6 +1,6 @@
 {
   "name": "opena",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "opena",
   "main": "index.js",
   "scripts": {
