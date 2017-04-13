@@ -17,10 +17,6 @@ exports = module.exports = (apis, opts) => {
       }
     }
 
-    let api = apis[query.method];
-    let v = query.v || api[0];
-
-    let method = api[1][v];
-    method.params(req, res, next);
+    next();
   };
 };

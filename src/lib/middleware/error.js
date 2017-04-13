@@ -8,6 +8,6 @@
 exports = module.exports = (apis, opts) => {
   return (err, req, res, next) => {
     if(!err) return next();
-    res.send({ error: { msg: err.message } });
+    res.send({ error: { msg: err } });
   };
 };
