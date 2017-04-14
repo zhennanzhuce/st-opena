@@ -11,8 +11,10 @@ exports = module.exports = (apis, opts) => {
   return (req, res, next) => {
     let query = URL.parse(req.url, true).query;
 
-    if(query.v){
-      if(!apis[query.method][1][query.v]){
+    let v = query.v;
+
+    if(v){
+      if(!apis[query.method][1][v]){
         return res.send(403, { error: { code: 40004 } });
       }
     }
