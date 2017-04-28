@@ -14,15 +14,15 @@ exports = module.exports = (fn) => {
 
     // access_token
     if(!utils.isEmpty(query.session)){
-      return res.send(403, { error: { code: '40009' } });
+      return res.send(200, { error: { code: '40009' } });
     }
 
     fn(query.session, (err, doc) => {
       if(err) return next(err);
 
-      if(!doc) return res.send(403, { error: { code: 'invalid_session' } });
+      if(!doc) return res.send(200, { error: { code: 'invalid_session' } });
       if(doc.client_id !== query.appkey){
-        return res.send(403, { error: { code: '40010' } });
+        return res.send(200, { error: { code: '40010' } });
       }
 
       req._user_id = doc.user_id;

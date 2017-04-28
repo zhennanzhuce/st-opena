@@ -15,19 +15,19 @@ exports = module.exports = (apis, fn) => {
 
     // client_id
     if(!utils.isEmpty(query.appkey)){
-      return res.send(403, { error: { code: 40005 } });
+      return res.send(200, { error: { code: 40005 } });
     }
 
     if(!utils.isEmpty(query.signature)){
-      return res.send(403, { error: { code: 40006 } });
+      return res.send(200, { error: { code: 40006 } });
     }
 
     fn(query.appkey, (err, seckey) => {
       if(err) return next(err);
-      if(!seckey) return res.send(403, { error: { code: 40007 } });
+      if(!seckey) return res.send(200, { error: { code: 40007 } });
 
       let result = rest.validate(query, seckey);
-      if(!result) return res.send(403, { error: { code: 40008 } });
+      if(!result) return res.send(200, { error: { code: 40008 } });
 
       next();
     });

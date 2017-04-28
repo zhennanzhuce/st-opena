@@ -12,11 +12,11 @@ exports = module.exports = (apis, opts) => {
     let query = URL.parse(req.url, true).query;
 
     if(!query.method){
-      return res.send(403, { error: { code: 40002 } });
+      return res.send(200, { error: { code: 40002 } });
     }
 
     if(!apis[query.method]){
-      return res.send(403, { error: { code: 40003 } });
+      return res.send(200, { error: { code: 40003 } });
     }
 
     next();

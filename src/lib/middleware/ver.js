@@ -15,7 +15,7 @@ exports = module.exports = (apis, opts) => {
 
     if(v){
       if(!apis[query.method][1][v]){
-        return res.send(403, { error: { code: 40004 } });
+        return res.send(200, { error: { code: 40004 } });
       }
     }
 
